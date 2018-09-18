@@ -1,0 +1,8 @@
+{
+  "name": "opentok_videochat",
+  "version": "0.0.1",
+  "description": "Small POC setting up basic environment to use full opentok capabilities",
+  "main": "index.js",
+  "author": "Eddie B",
+  "license": "MIT"
+}
