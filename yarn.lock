@@ -624,6 +624,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@opentok/client@^2.14.8":
+  version "2.14.8"
+  resolved "https://registry.yarnpkg.com/@opentok/client/-/client-2.14.8.tgz#21a8bf5453ddb826623b8d437515d1aa9665531c"
+
 "@webassemblyjs/ast@1.7.6":
   version "1.7.6"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.7.6.tgz#3ef8c45b3e5e943a153a05281317474fef63e21e"

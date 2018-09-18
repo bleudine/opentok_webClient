@@ -17,6 +17,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "@opentok/client": "^2.14.8",
     "babel-loader": "^8.0.2",
     "babel-polyfill": "^6.26.0",
     "bundle-loader": "^0.5.6",
