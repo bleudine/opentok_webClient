@@ -1,0 +1,42 @@
+{
+  "name": "opentok_videochat",
+  "version": "0.0.1",
+  "description": "Small POC setting up basic environment to use full opentok capabilities",
+  "main": "./index.js",
+  "scripts": {
+    "start": "webpack-dev-server --port 4000 --open --mode development --env.ENV='./.env' --env.MODE='development' --config webpack.config.js"
+  },
+  "author": "Eddie B",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@opentok/client": "^2.14.8",
+    "babel-loader": "^8.0.2",
+    "babel-polyfill": "^6.26.0",
+    "bundle-loader": "^0.5.6",
+    "css-loader": "^1.0.0",
+    "dotenv": "^6.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.3",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8"
+  }
+}

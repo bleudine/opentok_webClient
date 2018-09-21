@@ -1,18 +1,9 @@
-import { all, call} from 'redux-saga/effects';
-import OT           from "@opentok/client";
+import OT from "@opentok/client";
 
-export default function* mainSaga() {
-    console.log('WELL GOOD JOMB');
-}
-
-function* openTokSession() {
-    const session = OT.initSession('46189992', '');
-}
-
-class activeSession {
-    constructor(request) {
-        this.tokbox = request.tokbox;
-        this.tokboxSession = OT.initSession(Config.VISIO_CLIENT_ID, this.tokbox.sessionId);
+export class opentokSession {
+    constructor(payload) {
+        this.tokbox = payload;
+        this.tokboxSession = OT.initSession(this.tokbox.apiKey, this.tokbox.sessionId);
         this.sessionSubscriber = null;
         this.sessionPublisher = null;
         this.currentStream = null;
@@ -37,7 +28,7 @@ class activeSession {
     }
 
     initPublisher(onPublish = this.onPublish) {
-        this.sessionPublisher = OT.initPublisher('helper_preview', {
+        this.sessionPublisher = OT.initPublisher('publisher', {
             insertMode: 'append',
             width: '100%',
             height: '100%',
@@ -45,7 +36,7 @@ class activeSession {
     }
 
     setSubscriber(stream, onSubscribe = this.onSubscribe) {
-        this.sessionSubscriber= this.tokboxSession.subscribe(stream, 'user_preview', {
+        this.sessionSubscriber= this.tokboxSession.subscribe(stream, 'subscriber', {
             insertMode: 'append',
             width: '100%',
             height: '100%',
