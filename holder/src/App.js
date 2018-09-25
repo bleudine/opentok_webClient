@@ -7,6 +7,7 @@ import reducers                                from './reducers/reducers';
 import mainSaga                                from './sagas/mainSaga';
 
 import VisioComponent from './visio/component/VisioComponent';
+import './App.scss';
 
 const sagaMiddleware = createSagaMiddleware();
 

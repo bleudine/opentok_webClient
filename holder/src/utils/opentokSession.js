@@ -7,9 +7,11 @@ export class opentokSession {
         this.sessionSubscriber = null;
         this.sessionPublisher = null;
         this.currentStream = null;
+        this.connectionId = null;
     }
 
     onPublish(error) {
+        console.log(arguments);
         if (error) {
             console.error(error);
         }
@@ -21,17 +23,19 @@ export class opentokSession {
         }
     }
 
-    onConnection(error) {
+    onConnection(error, event) {
         if (error) {
             console.error(error);
+        } else {
+            this.connectionId = event.target.connection.connectionId
         }
     }
 
     initPublisher(onPublish = this.onPublish) {
         this.sessionPublisher = OT.initPublisher('publisher', {
             insertMode: 'append',
-            width: '100%',
-            height: '100%',
+            width: '30%',
+            height: '30%',
         }, onPublish)
     }
 
@@ -46,6 +50,10 @@ export class opentokSession {
 
     setStream(stream) {
         this.currentStream = stream;
+    }
+
+    unsetStream() {
+        this.currentStream = null;
     }
 
     get session() {
@@ -64,8 +72,12 @@ export class opentokSession {
         return this.currentStream;
     }
 
+    get clientConnectionID() {
+        return this.connectionId;
+    }
+
     connect() {
-        return this.session.connect(this.tokbox.token, this.onConnection);
+        return this.session.connect(this.tokbox.token, this.onConnection.bind(this));
     }
 
     disconnect() {
