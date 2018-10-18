@@ -5,9 +5,8 @@ import createSagaMiddleware                    from 'redux-saga';
 import { Provider }                            from 'react-redux';
 import reducers                                from './reducers/reducers';
 import mainSaga                                from './sagas/mainSaga';
-
-import VisioComponent from './visio/component/VisioComponent';
 import './App.scss';
+import VisioComponent                          from './component/VisioComponent';
 
 const sagaMiddleware = createSagaMiddleware();
 

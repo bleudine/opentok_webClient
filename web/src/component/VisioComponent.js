@@ -1,13 +1,10 @@
 import React                     from 'react';
-import { connect }               from 'react-redux'
-import {initVisioChat, sendMessage} from '../../actions/actions';
+import { connect }               from 'react-redux';
+import {fetchSessionCredentials} from '../actions/actions';
+import {sendMessage}             from '../actions/actions';
 
 class VisioComponent extends React.Component {
     input = null;
-
-    componentDidMount() {
-        this.props.initVisioChat();
-    }
 
     render() {
 
@@ -24,6 +21,12 @@ class VisioComponent extends React.Component {
                     <input ref={input => this.input = input} id="textInput" type="text" />
                     <button type="submit">Send</button>
                 </form>
+                <button onClick={this.props.fetchSessionCredentials}>Generate Session</button>
+                {
+                    this.props.token &&
+                    this.props.sessionId &&
+                    <a target="_blank" href={`http://localhost:4000?token=${this.props.token}&sessionId=${this.props.sessionId}`}>share this link</a>
+                }
             </div>
         )
     }
@@ -31,9 +34,11 @@ class VisioComponent extends React.Component {
 
 export default connect(
     state => ({
+        token: state.session.token,
+        sessionId: state.session.sessionId,
     }),
     dispatch => ({
-        initVisioChat: () => dispatch(initVisioChat()),
+        fetchSessionCredentials: () => dispatch(fetchSessionCredentials()),
         sendMessage: message => dispatch(sendMessage(message))
     })
 )(VisioComponent)
